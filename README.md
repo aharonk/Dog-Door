@@ -1,4 +1,6 @@
-DogDoor file:<br>
+# Dog Door
+
+## DogDoor file:<br>
 The dogDoor class can be affected by other classes, such as the remote (which can be used to open the door) and the barkRecognizer.
 <br><br>
 
@@ -28,6 +30,8 @@ The dogDoor class can be affected by other classes, such as the remote (which ca
 *	getDoorLockDelay returns the delay time currently set
 *	Right after is the setDoorLockDelay method which allows one to set and reset the lock delay for the door as they see fit.
 
+
+## DoorTimer
 What follows is a class of doorTimer which implements Runnable
 *	First is a run method which takes no args and initializes a timer and a TimerTask ( a command or sequence of commands to be carried out when the timer is done)
 *	Next is a run method which overrides the abstract method in TimerTask and queries the door, if the door is open then keep open is set to false, next it asks for the dogs position and then switches it (this assumes the dog goes inside when it gets the door open) 
@@ -36,6 +40,7 @@ What follows is a class of doorTimer which implements Runnable
 *	If somehow none of those conditions are met the timer is canceled, which ends the cycle.
 *	The last line of this class sets the timer to run the task after the delay time (the * 1000 is to push it from milliseconds to seconds) and repeat it again after the delay time 
 
+## Dog
 
 The next class is the Dog class
 
@@ -52,6 +57,7 @@ The next class is the Dog class
 *	The getBarkSound method returns the noise your dog makes
 *	The getName method returns the dogs name
 
+## BarkRecognizer
 
 The next class is the BarkRecognizer class
 
@@ -66,6 +72,8 @@ The next class is the BarkRecognizer class
 *	The next method clearBarks wipes the whole bark registry
 *	The bark check takes in a String (ie. a noise) and matches it to a dog in registry, if it exists the door opens and the timer is started.
 *	The next method is checkScratch, it takes a boolean as its argument. If it detects a scratch then it will call announce scratch ( a DoorRemote function) to let the user know that the dog is at the door
+
+## DoorRemote
 
 The next class is the DoorRemote class
 
@@ -83,6 +91,8 @@ The next class is the DoorRemote class
         *	When called, this method calls the DogDoor classes method setDoorLockDelay
 *	announceScratch was mentioned above, the method simply prints out “Scratching at door”
 *	The newOwner method erases the dogs register when called
+
+## Bark
 
 The next class is the Bark class
 
